@@ -8,8 +8,10 @@ Compilation of function to administrate, migrate, postgres.
 
 ### Views
 
-* index_duplicates - List all index similar to each other, you should keep an eye on those indexes
+* index_duplicates - List all indexes similar to each other, you should keep an eye on those indexes
 * table_sizes - List all table sizes, index sizes and various size-related metrics
+* index_usage - List all indexes and index usage statistics, easily find unused indexes
+* database_size - List all databases and their disk usage
 
 ### Functions
 
