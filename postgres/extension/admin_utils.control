@@ -1,0 +1,5 @@
+# admin_utils extension
+comment = 'Ship and accumulate a bunch of useful tools'
+default_version = '1.0'
+module_pathname = '$libdir/admin_utils'
+relocatable = true

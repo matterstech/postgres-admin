@@ -1,8 +1,6 @@
 #!/bin/bash
-source lib/postgres.sh
-
-schema="public"
-database="postgres"
+schema="admin"
+database="mydatabase"
 host="127.0.0.1"
 user="postgres"
 sgbd="postgres"
@@ -22,6 +20,13 @@ if [ "$1" = "--help" ]; then
 	usage
 fi
 
-import_postgres_scripts $database
+
+cd postgres/extension
+sudo make install
+cd -
+
+psql -h $host -U $user -p $port $database -c "drop extension if exists admin_utils"
+psql -h $host -U $user -p $port $database -c "create extension if not exists admin_utils with schema $schema"
+psql -h $host -U $user -p $port $database -c "alter extension admin_utils update"
 
 exit 0
