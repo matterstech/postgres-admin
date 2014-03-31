@@ -25,7 +25,7 @@ LANGUAGE SQL IMMUTABLE;
 
 
 
-CREATE VIEW table_sizes AS 
+CREATE VIEW table_size AS 
 select 
         table_schema as table_schema,
         table_name as table_name, 
@@ -64,7 +64,7 @@ order by
 
 
 -- based on query from http://wiki.postgresql.org/wiki/Index_Maintenance
-CREATE VIEW index_duplicates AS 
+CREATE VIEW index_duplicate AS 
     WITH index_duplicate AS (
         SELECT
             first_value(index_pg_class.oid) OVER (index_identity) duplicate_id,
