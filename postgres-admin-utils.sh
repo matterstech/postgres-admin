@@ -21,6 +21,8 @@ if [ "$1" = "--help" ]; then
 fi
 
 
+psql -h $host -U $user -p $port $database -c "drop extension if exists admin_utils"
+
 cd postgres/extension
 sudo make install
 cd -
