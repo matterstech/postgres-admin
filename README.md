@@ -17,6 +17,7 @@ mydatabase=# select * from admin.extension_object where extension_name = 'admin_
  admin_utils    | VIEW        | database_size    | List all databases and their disk usage
  admin_utils    | VIEW        | extension_object | List of all object packed in an extension with associated comment
  admin_utils    | VIEW        | index_duplicate  | List all indexes similar to each other, you should keep an eye on those indexes
+ admin_utils    | VIEW        | index_operator   | List of all valid operators for an index
  admin_utils    | VIEW        | index_usage      | List all indexes and index usage statistics, easily find unused indexes
  admin_utils    | VIEW        | setting_delta    | List of settings that have been changed from the default by any source
  admin_utils    | VIEW        | table_size       | List all table sizes, index sizes and various size-related metrics
