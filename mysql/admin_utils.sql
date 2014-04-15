@@ -1,1 +1,0 @@
--- Please contribute to the mysql extension :)
