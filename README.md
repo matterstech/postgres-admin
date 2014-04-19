@@ -6,17 +6,19 @@ This extension contains a list of functions describe below to manage your postgr
 
 ## Postgresql
 
-```sql
-
 Install manually
 -----------------
 
+```
 mydatabase=# create extension if not exists postgres_admin with schema myschema;
 mydatabase=# select * from admin.extension_object where extension_name = 'postgres_utils' order by object_kind, object_name;
+```
 
 Install automatically
 ----------------------
-./install -db=mydb -U=me
+```
+me:/dir$ ./install -db=mydb -U=me
+```
 
 Install options
 ----------------
@@ -34,9 +36,11 @@ All options must be follow by =value. For example -h=localhost
 
 Uninstall
 ----------
-
+```
 mydatabase=# drop extension if exists postgres_admin with schema myschema;
+```
 
+```sql
 
  extension_name | object_kind |   object_name    |                                   description
 ----------------+-------------+------------------+---------------------------------------------------------------------------------
@@ -51,4 +55,3 @@ mydatabase=# drop extension if exists postgres_admin with schema myschema;
  admin_utils    | VIEW        | setting_delta    | List of settings that have been changed from the default by any source
  admin_utils    | VIEW        | table_size       | List all table sizes, index sizes and various size-related metrics
 ```
-
