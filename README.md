@@ -37,7 +37,7 @@ All options must be follow by =value. For example -h=localhost
 Uninstall
 ----------
 ```
-mydatabase=# drop extension if exists postgres_admin with schema myschema;
+mydatabase=# drop extension if exists postgres_admin [CASCADE];
 ```
 
 ```sql
