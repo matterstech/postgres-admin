@@ -1,7 +1,7 @@
 postgres-admin
 ====================
 
-This extension contains a list of functions describe below to manage your postgres database easily.
+This extension contains a list of functions describe below to manage your PostgreSQL database easily.
 
 
 ## Postgresql
@@ -30,7 +30,7 @@ All options must be follow by =value. For example -h=localhost
 
 **-U** : Database user
 
-**-schema** : schema name
+**-schema** : Schema name
 
 **-db** : Database name
 
