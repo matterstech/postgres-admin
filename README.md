@@ -44,14 +44,14 @@ mydatabase=# drop extension if exists postgres_admin [CASCADE];
 
  extension_name | object_kind |   object_name    |                                   description
 ----------------+-------------+------------------+---------------------------------------------------------------------------------
- admin_utils    | FUNCTION    | array_avg        | Compute the average of an array
- admin_utils    | FUNCTION    | is_float         | Test if a value is in fact a float
- admin_utils    | FUNCTION    | is_int           | Test if a value is in fact an integer
- admin_utils    | VIEW        | database_size    | List all databases and their disk usage
- admin_utils    | VIEW        | extension_object | List of all object packed in an extension with associated comment
- admin_utils    | VIEW        | index_duplicate  | List all indexes similar to each other, you should keep an eye on those indexes
- admin_utils    | VIEW        | index_operator   | List of all valid operators for an index
- admin_utils    | VIEW        | index_usage      | List all indexes and index usage statistics, easily find unused indexes
- admin_utils    | VIEW        | setting_delta    | List of settings that have been changed from the default by any source
- admin_utils    | VIEW        | table_size       | List all table sizes, index sizes and various size-related metrics
+ postgres_admin    | FUNCTION    | array_avg        | Compute the average of an array
+ postgres_admin    | FUNCTION    | is_float         | Test if a value is in fact a float
+ postgres_admin    | FUNCTION    | is_int           | Test if a value is in fact an integer
+ postgres_admin    | VIEW        | database_size    | List all databases and their disk usage
+ postgres_admin    | VIEW        | extension_object | List of all object packed in an extension with associated comment
+ postgres_admin    | VIEW        | index_duplicate  | List all indexes similar to each other, you should keep an eye on those indexes
+ postgres_admin    | VIEW        | index_operator   | List of all valid operators for an index
+ postgres_admin    | VIEW        | index_usage      | List all indexes and index usage statistics, easily find unused indexes
+ postgres_admin    | VIEW        | setting_delta    | List of settings that have been changed from the default by any source
+ postgres_admin    | VIEW        | table_size       | List all table sizes, index sizes and various size-related metrics
 ```
