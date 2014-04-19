@@ -1,14 +1,43 @@
-postgres-admin-utils
+postgres-admin
 ====================
 
-Compilation of function to administrate, migrate, postgres.
+This extension contains a list of functions describe below to manage your postgres database easily.
 
 
 ## Postgresql
 
 ```sql
-mydatabase=# create extension if not exists admin_utils with schema admin;
-mydatabase=# select * from admin.extension_object where extension_name = 'admin_utils' order by object_kind, object_name;
+
+Install manually
+-----------------
+
+mydatabase=# create extension if not exists postgres_admin with schema myschema;
+mydatabase=# select * from admin.extension_object where extension_name = 'postgres_utils' order by object_kind, object_name;
+
+Install automatically
+----------------------
+./install -db=mydb -U=me
+
+Install options
+----------------
+All options must be follow by =value. For example -h=localhost
+
+**-h** : Database host
+
+**-p** : Database port
+
+**-U** : Database user
+
+**-schema** : schema name
+
+**-db** : Database name
+
+Uninstall
+----------
+
+mydatabase=# drop extension if exists postgres_admin with schema myschema;
+
+
  extension_name | object_kind |   object_name    |                                   description
 ----------------+-------------+------------------+---------------------------------------------------------------------------------
  admin_utils    | FUNCTION    | array_avg        | Compute the average of an array
@@ -22,3 +51,4 @@ mydatabase=# select * from admin.extension_object where extension_name = 'admin_
  admin_utils    | VIEW        | setting_delta    | List of settings that have been changed from the default by any source
  admin_utils    | VIEW        | table_size       | List all table sizes, index sizes and various size-related metrics
 ```
+
