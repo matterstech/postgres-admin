@@ -26,7 +26,7 @@ All options must be follow by =value. For example -h=localhost
 
 **-h** : Database host
 
-**-p** : Database port
+**-p** : Database port (Default: 5432)
 
 **-U** : Database user
 
