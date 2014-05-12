@@ -30,7 +30,7 @@ All options must be follow by =value. For example -h=localhost
 
 **-U** : Database user
 
-**-schema** : Schema name
+**-schema** : Schema name where the extension will be install
 
 **-db** : Database name
 
