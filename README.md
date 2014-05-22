@@ -12,6 +12,7 @@ Requirements
 Debian
 ```
 apt-get install postgresql-server-dev-<postgres-version>
+apt-get install libpq-dev
 ```
 
 Install manually
