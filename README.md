@@ -6,6 +6,14 @@ This extension contains a list of functions describe below to manage your Postgr
 
 ## Postgresql
 
+Requirements
+------------
+
+Debian
+```
+apt-get install postgresql-server-dev-<postgres-version>
+```
+
 Install manually
 -----------------
 
