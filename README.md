@@ -66,3 +66,9 @@ mydatabase=# drop extension if exists postgres_admin [CASCADE];
  postgres_admin    | VIEW        | setting_delta    | List of settings that have been changed from the default by any source
  postgres_admin    | VIEW        | table_size       | List all table sizes, index sizes and various size-related metrics
 ```
+
+Contribution
+-----------------
+
+In order to add a new function to the extension. The function must be write in a file call function_name-unpacked.sql inside the folder sql
+It will be merge automatically by the makefile
