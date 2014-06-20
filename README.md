@@ -28,13 +28,11 @@ mydatabase=# select * from admin.extension_object where extension_name = 'postgr
 Install automatically
 ----------------------
 ```
-me:/dir$ ./install -db=mydb -U=me
+me:/dir$ ./install -db mydb -U me
 ```
 
 Install options
 ----------------
-All options must be follow by =value. For example -h=localhost
-
 **-h** : Database host
 
 **-p** : Database port (Default: 5432)
