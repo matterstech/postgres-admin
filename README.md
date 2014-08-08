@@ -49,6 +49,9 @@ Uninstall
 mydatabase=# drop extension if exists postgres_admin [CASCADE];
 ```
 
+Functions
+---------
+
 ```sql
 
  extension_name | object_kind |   object_name    |                                   description
@@ -65,8 +68,18 @@ mydatabase=# drop extension if exists postgres_admin [CASCADE];
  postgres_admin    | VIEW        | table_size       | List all table sizes, index sizes and various size-related metrics
 ```
 
-Contribution
------------------
+Contributing
+-------------
 
-In order to add a new function to the extension. The function must be write in a file call function_name-unpacked.sql inside the folder sql
-It will be merge automatically by the makefile
+```Pull request
+
+Use the git feature branch workflow in order to contribute to this project.
+
+Documentation can be found here <https://www.atlassian.com/git/workflows#!workflow-feature-branch>
+
+
+```Add a function to the project
+
+Add a file with my_function-unpacked.sql into src/extension/sql/
+
+The function must be well documented using the command "ADD COMMENT"
