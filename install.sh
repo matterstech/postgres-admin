@@ -4,6 +4,7 @@ database="mydatabase"
 host="127.0.0.1"
 user="postgres"
 port=5432
+i=1
 
 function usage(){
 	echo -e "options : \n"
@@ -13,7 +14,7 @@ function usage(){
 	echo -e "-db: Database's name\n"
 	echo -e "-schema: Schema where the extension will be install\n"
 	echo -e "Example\n"
-	echo -e "./install.sh -U=user -db=db -schema=postgres_admin"
+	echo -e "./install.sh -U user -db db -schema postgres_admin"
 	exit 1
 }
 
@@ -22,16 +23,30 @@ if [ "$1" = "--help" ]; then
 else
 	for word in $@
 	do
+
 		if [[ "$word" =~ ^-h ]] ;then
-			host=$(echo $word | cut -f2 -d=)
+		    let i=i+1
+			host=$(echo ${!i})
+			let i=i+1
 		elif [[ "$word" =~ ^-U  ]] ;then
-			user=$(echo $word | cut -f2 -d=)
+		    let i=i+1
+			user=$(echo ${!i})
+			let i=i+1
 		elif [[ "$word" =~ ^-p  ]] ;then
-                        port=$(echo $word | cut -f2 -d=)
+            let i=i+1
+            port=$(echo ${!i})
+            let i=i+1
 		elif [[ "$word" =~ ^-db  ]] ;then
-                        database=$(echo $word | cut -f2 -d=)
+            let i=i+1
+            database=$(echo ${!i})
+            let i=i+1
 		elif [[ "$word" =~ ^-schema  ]] ;then
-                        schema=$(echo $word | cut -f2 -d=)
+            let i=i+1
+            schema=$(echo ${!i})
+            let i=i+1
+        elif [[ "$word" =~ ^--help ]] ;then
+            usage
+            exit 1
 		fi
 	done
 fi

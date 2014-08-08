@@ -6,6 +6,17 @@ This extension contains a list of functions describe below to manage your Postgr
 
 ## Postgresql
 
+Requirements
+------------
+
+Debian
+```
+apt-get install postgresql-server-dev-<postgres-version>
+
+apt-get install libpq-dev
+
+```
+
 Install manually
 -----------------
 
@@ -17,20 +28,18 @@ mydatabase=# select * from admin.extension_object where extension_name = 'postgr
 Install automatically
 ----------------------
 ```
-me:/dir$ ./install -db=mydb -U=me
+me:/dir$ ./install -db mydb -U me
 ```
 
 Install options
 ----------------
-All options must be follow by =value. For example -h=localhost
-
 **-h** : Database host
 
-**-p** : Database port
+**-p** : Database port (Default: 5432)
 
 **-U** : Database user
 
-**-schema** : Schema name
+**-schema** : Schema name where the extension will be install
 
 **-db** : Database name
 
@@ -64,16 +73,15 @@ Contributing
 -------------
 
 Pull request
-```
+
 Use the git feature branch workflow in order to contribute to this project.
 
 Documentation can be found here <https://www.atlassian.com/git/workflows#!workflow-feature-branch>
-```
+
 
 Add a function to the project
 
-```
+
 Add a file with my_function-unpacked.sql into src/extension/sql/
 
 The function must be well documented using the command "ADD COMMENT"
-```
