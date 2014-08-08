@@ -40,6 +40,9 @@ Uninstall
 mydatabase=# drop extension if exists postgres_admin [CASCADE];
 ```
 
+Functions
+---------
+
 ```sql
 
  extension_name | object_kind |   object_name    |                                   description
