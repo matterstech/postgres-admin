@@ -1,6 +1,6 @@
 EXTENSION = postgres_admin
 EXTVERSION = 1.0
-FILES = $(wildcard sql/*-unpacked.sql)
+FILES = $(wildcard sql/*--unpackaged.sql)
 FINAL_FILE = sql/$(EXTENSION)--$(EXTVERSION).sql
 DATA = sql/$(EXTENSION)--$(EXTVERSION).sql
 

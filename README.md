@@ -82,6 +82,6 @@ Documentation can be found here <https://www.atlassian.com/git/workflows#!workfl
 ### Add a function to the project
 
 
-Add a file with my_function-unpacked.sql into src/extension/sql/
+Add a file named my_function--unpackaged.sql into src/extension/sql/
 
 The function must be well documented using the command "ADD COMMENT"
