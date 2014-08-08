@@ -72,14 +72,14 @@ Functions
 Contributing
 -------------
 
-Pull request
+### Pull request
 
 Use the git feature branch workflow in order to contribute to this project.
 
 Documentation can be found here <https://www.atlassian.com/git/workflows#!workflow-feature-branch>
 
 
-Add a function to the project
+### Add a function to the project
 
 
 Add a file with my_function-unpacked.sql into src/extension/sql/
