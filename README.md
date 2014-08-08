@@ -58,3 +58,20 @@ Functions
  postgres_admin    | VIEW        | setting_delta    | List of settings that have been changed from the default by any source
  postgres_admin    | VIEW        | table_size       | List all table sizes, index sizes and various size-related metrics
 ```
+
+Contributing
+-------------
+
+```Pull request
+
+Use the git feature branch workflow in order to contribute to this project.
+
+Documentation can be found here <https://www.atlassian.com/git/workflows#!workflow-feature-branch>
+
+
+```Add a function to the project
+
+Add a file with my_function-unpacked.sql into src/extension/sql/
+
+The function must be well documented using the command "ADD COMMENT"
+
