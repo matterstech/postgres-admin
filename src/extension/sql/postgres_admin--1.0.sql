@@ -9,7 +9,7 @@ CREATE VIEW database_size AS
         d.datname AS db_name,
         pg_catalog.pg_get_userbyid(d.datdba) AS db_owner,
         CASE WHEN pg_catalog.has_database_privilege(d.datname, 'CONNECT')
-            THEN pg_catalog.pg_size_pretty(pg_catalog.pg_database_size(d.datname))
+            THEN pg_catalog.pg_size_pretty(CAST(pg_catalog.pg_database_size(d.datname) AS bigint))
             ELSE 'No Access'
         END AS db_size
     FROM
@@ -114,8 +114,8 @@ CREATE VIEW index_duplicate AS
     )
     SELECT
         *,
-        pg_size_pretty(total_index_size) as total_index_size_pretty,
-        pg_size_pretty(index_size) as index_size_pretty
+        pg_size_pretty(CAST(total_index_size AS bigint)) as total_index_size_pretty,
+        pg_size_pretty(CAST(index_size  AS bigint)) as index_size_pretty
     FROM
         index_duplicate
     WHERE
@@ -177,8 +177,8 @@ CREATE VIEW index_usage AS
         pg_tables.tablename as table_name,
         index_pg_class.relname as index_name,
         table_pg_class.reltuples AS num_rows,
-        pg_size_pretty(pg_relation_size(pg_tables.schemaname||'.'||pg_tables.tablename)) AS table_size,
-        pg_size_pretty(pg_relation_size(pg_tables.schemaname||'.'||index_pg_class.relname)) AS index_size,
+        pg_size_pretty(CAST(pg_relation_size(pg_tables.schemaname||'.'||pg_tables.tablename)  AS bigint)) AS table_size,
+        pg_size_pretty(CAST(pg_relation_size(pg_tables.schemaname||'.'||index_pg_class.relname) AS bigint)) AS index_size,
         CASE WHEN pg_index.indisunique THEN 'Y' ELSE 'N' END AS unique,
         pg_stat_all_indexes.idx_scan AS number_of_scans,
         pg_stat_all_indexes.idx_tup_read AS tuples_read,
@@ -223,9 +223,9 @@ COMMENT ON VIEW setting_delta IS 'List of settings that have been changed from t
 select
         table_schema as table_schema,
         table_name as table_name,
-        pg_size_pretty(pg_total_relation_size(table_schema||'.'||table_name)) as total_size_pretty,
-        pg_size_pretty(pg_relation_size(table_schema||'.'||table_name)) as table_size_pretty,
-        pg_size_pretty(pg_total_relation_size(table_schema||'.'||table_name) - pg_relation_size(table_schema||'.'||table_name)) as index_size_pretty,
+        pg_size_pretty(CAST(pg_total_relation_size(table_schema||'.'||table_name) AS bigint)) as total_size_pretty,
+        pg_size_pretty(CAST(pg_relation_size(table_schema||'.'||table_name) AS bigint)) as table_size_pretty,
+        pg_size_pretty(CAST(pg_total_relation_size(table_schema||'.'||table_name) - pg_relation_size(table_schema||'.'||table_name) AS bigint)) as index_size_pretty,
         -- table size / index size
         case when pg_relation_size(table_schema||'.'||table_name) <> 0 then
                 round(
