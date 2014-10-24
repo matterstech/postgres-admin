@@ -30,8 +30,8 @@ CREATE VIEW index_duplicate AS
     )
     SELECT
         *,
-        pg_size_pretty(total_index_size) as total_index_size_pretty,
-        pg_size_pretty(index_size) as index_size_pretty
+        pg_size_pretty(CAST(total_index_size AS bigint)) as total_index_size_pretty,
+        pg_size_pretty(CAST(index_size  AS bigint)) as index_size_pretty
     FROM
         index_duplicate
     WHERE

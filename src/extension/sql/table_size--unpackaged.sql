@@ -2,9 +2,9 @@ CREATE VIEW table_size AS
 select
         table_schema as table_schema,
         table_name as table_name,
-        pg_size_pretty(pg_total_relation_size(table_schema||'.'||table_name)) as total_size_pretty,
-        pg_size_pretty(pg_relation_size(table_schema||'.'||table_name)) as table_size_pretty,
-        pg_size_pretty(pg_total_relation_size(table_schema||'.'||table_name) - pg_relation_size(table_schema||'.'||table_name)) as index_size_pretty,
+        pg_size_pretty(CAST(pg_total_relation_size(table_schema||'.'||table_name)) AS bigint) as total_size_pretty,
+        pg_size_pretty(CAST(pg_relation_size(table_schema||'.'||table_name)) AS bigint) as table_size_pretty,
+        pg_size_pretty(CAST(pg_total_relation_size(table_schema||'.'||table_name) - pg_relation_size(table_schema||'.'||table_name)) AS bigint) as index_size_pretty,
         -- table size / index size
         case when pg_relation_size(table_schema||'.'||table_name) <> 0 then
                 round(

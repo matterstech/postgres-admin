@@ -4,7 +4,7 @@ CREATE VIEW database_size AS
         d.datname AS db_name,
         pg_catalog.pg_get_userbyid(d.datdba) AS db_owner,
         CASE WHEN pg_catalog.has_database_privilege(d.datname, 'CONNECT')
-            THEN pg_catalog.pg_size_pretty(pg_catalog.pg_database_size(d.datname))
+            THEN pg_catalog.pg_size_pretty(CAST(pg_catalog.pg_database_size(d.datname) AS bigint))
             ELSE 'No Access'
         END AS db_size
     FROM
